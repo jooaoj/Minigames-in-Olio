@@ -14,7 +14,7 @@ All interaction with the user and game classes go through this script.
 """
 # Built-in Libraries:
 import math
-import os  # to get the name of the operating system for clearing the console screen
+import os  # To get the OS and clear the console.
 
 # User made classes/objects:
 from minigames.memorygame import Memorygame
@@ -62,7 +62,7 @@ def play(game):
                     if not restart(game):
                         break
         except Exception as e:
-            print('Invalid move...\nCheck your selection.', e)
+            print('\tInvalid move...\nCheck your selection.', e)
     return True  # Lab 2 - adding serialization
 
 
