@@ -6,18 +6,21 @@ Description:    Memorygame()-class for minigames
 
 class Memorygame:
 
-    def __init__(self, board, title, pair, pairs, marks):
-        self.board = board
-        self.title = title
-        self.pair = pair
-        self.pairs = pairs
-        self.marks = marks
+    board = [[["#"],["#"]],[["#"],["#"]]]
+    title = "The Most Malicious Memorygame"
+    pair = ""
+    pairs = len(board)
+    marks = ('%', '@', '¤')
 
     def move(self, place):
-        return place
+        if place == self.board:
+            return True
+        else:
+            return False
 
     def isGameOver(self):
-        return 0 # or 1 for "yes/no"
+        if 0:
+            return 0
 
     def reset(self):
-        return 0
+        return clear()
