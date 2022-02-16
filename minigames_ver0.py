@@ -56,18 +56,19 @@ def play(game):
                     elif situation == 1:  # WIN
                         print("\n\n\tWell done!")
                     elif situation == 2:  # LOSE
-                        print('\n\n\tOOPS - better luck next time!')
+                        print('\n\n\tOops - better luck next time!')
                     elif situation == 3:  # TIE
                         print("\n\n\tIt's tie - no more moves")
                     if not restart(game):
                         break
-        except ValueError:
-            print('Invalid move...\nCheck your selection.')
+        except Exception as e:
+            print('Invalid move...\nCheck your selection.', e)
     return True  # Lab 2 - adding serialization
 
 
 def restart(game):
     if input('\n\n\tDo you want to play again [Y|N]? ').upper() == 'Y':
+        print("\tOkay, resetting board...\n")
         game.reset()
         return True
     else:
