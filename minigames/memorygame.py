@@ -1,16 +1,17 @@
-'''
+"""
 Title:          memorygame.py
 Author(s):      Jooa Jaakkola
-Description:    Memorygame()-class for minigames
-'''
+Description:    Memorygame()-class for mini-games
+"""
+
 
 class Memorygame:
-
-    board = [[["#"],["#"]],[["#"],["#"]]]
-    title = "The Most Malicious Memorygame"
-    pair = ""
-    pairs = len(board)
-    marks = ('%', '@', '¤')
+    def __init__(self):
+        self.board = [" # "]*16
+        self.title = "The Most Malicious Memory-game"
+        self.pair = ""
+        self.pairs = ""
+        self.marks = ('%', '@', '¤')
 
     def move(self, place):
         if place == self.board:
@@ -18,9 +19,8 @@ class Memorygame:
         else:
             return False
 
-    def isGameOver(self):
-        if 0:
-            return 0
+    def isGameOver():
+        pass
 
     def reset(self):
-        return clear()
+        pass

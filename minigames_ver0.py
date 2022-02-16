@@ -62,7 +62,7 @@ def play(game):
                     if not restart(game):
                         break
         except ValueError:
-            print('Check your selection')
+            print('Invalid move...\nCheck your selection.')
     return True  # Lab 2 - adding serialization
 
 
@@ -80,10 +80,10 @@ def menu():
     while True:
         clear()
         print('''
-        Minigame collection:
+        Mini-game collection:
               
         1. Minimine
-        2. Memorygame - find the pairs
+        2. Memory-game - find the pairs
         3. Five-in-a-row
         4. Quit
         ''')
@@ -98,7 +98,7 @@ def menu():
                 game = Memorygame()
             case '3':
                 print("game = FiveRow()")
-            case _:
+            case '4':
                 break
         if not play(game):
             break
