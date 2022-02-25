@@ -27,6 +27,7 @@ def draw(game, rows, columns):
     print('\t', game.title, '\n\n')
     print('\t       ', ' '.join(columns))
     for i in range(1, rows + 1):
+        # Generates a matrix with each game's board attributes.
         print('\t    ', f'{i:2}', ''.join(game.board[(i - 1) * rows:(i - 1) * rows + rows]))
 
 
@@ -62,7 +63,7 @@ def play(game):
                     if not restart(game):
                         break
         except Exception as e:
-            print('\tInvalid move...\nCheck your selection.', e)
+            print('\n\tInvalid move...\n\tCheck your selection.', e,'\n')
     return True  # Lab 2 - adding serialization
 
 
@@ -90,7 +91,8 @@ def menu():
         ''')
         select = ''
         while select not in ('1', '2', '3'):
-            select = input('\tSelect: ')
+            select = input('\t\tSelect: ')
+            print()
             break
         match select:
             case '1':
