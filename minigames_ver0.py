@@ -18,8 +18,8 @@ import os  # To get the OS and clear the console.
 
 # User made classes/objects:
 from minigames.memorygame import Memorygame
-# from minigames.minimine import Minimine
-# from minigames.fiverow import FiveRow
+from minigames.minimine import Minimine
+from minigames.fiverow import FiveRow
 
 
 def draw(game, rows, columns):
