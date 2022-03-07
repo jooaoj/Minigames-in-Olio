@@ -1,7 +1,7 @@
 """
-Title:              main.py
-Author:             Jooa Jaakkola (@benevolentimp)
-Description:        A concise description of this file.
+Title:              fiverow.py
+Author:             Paavo Makela, Jooa Jaakkola, Mio Saari, Nea Virtanen & Roope Kakko
+Description:        FiveRow Lab 2 - added serialization.
 """
 import random
 
@@ -18,19 +18,19 @@ class FiveRow:
         self.board = 12 ** 2 * ["   "]
 
     # board to test for tie
-    ##        self.board = \
-    ##        [' X ', ' O ',' X ',' X ',' O ',' X ',' O ',' O ',' O ',' X ',' X ',' X ',\
-    ##         ' X ', ' X ',' O ',' X ',' X ',' O ',' X ',' X ',' X ',' O ',' O ',' X ',\
-    ##         ' X ', ' X ',' X ',' X ',' O ',' O ',' X ',' O ',' X ',' X ',' O ',' O ',\
-    ##         ' X ', ' X ',' O ',' X ',' O ',' X ',' O ',' O ',' X ',' X ',' X ',' X ',\
-    ##         ' O ', ' X ',' O ',' O ',' O ',' X ',' O ',' X ',' O ',' X ',' X ',' X ',\
-    ##         ' O ', ' O ',' X ',' X ',' X ',' O ',' X ',' O ',' X ',' O ',' X ',' O ',\
-    ##         ' X ', ' O ',' O ',' X ',' X ',' O ',' X ',' O ',' X ',' O ',' X ',' O ',\
-    ##         ' X ', ' X ',' X ',' O ',' O ',' O ',' O ',' X ',' X ',' X ',' O ',' X ',\
-    ##         ' O ', ' O ',' X ',' O ',' X ',' O ',' O ',' X ',' O ',' X ',' X ',' X ',\
-    ##         ' O ', ' X ',' X ',' X ',' O ',' X ',' O ',' X ',' X ',' O ',' X ',' X ',\
-    ##         ' X ', ' O ',' X ',' X ',' O ',' O ',' X ',' O ',' X ',' X ',' X ',' X ',\
-    ##         ' X ', ' X ',' O ',' X ',' O ',' O ',' O ',' O ',' X ',' X ',"   ","   "]
+    # self.board = \
+    # [' X ', ' O ',' X ',' X ',' O ',' X ',' O ',' O ',' O ',' X ',' X ',' X ',\
+    # ' X ', ' X ',' O ',' X ',' X ',' O ',' X ',' X ',' X ',' O ',' O ',' X ',\
+    # ' X ', ' X ',' X ',' X ',' O ',' O ',' X ',' O ',' X ',' X ',' O ',' O ',\
+    # ' X ', ' X ',' O ',' X ',' O ',' X ',' O ',' O ',' X ',' X ',' X ',' X ',\
+    # ' O ', ' X ',' O ',' O ',' O ',' X ',' O ',' X ',' O ',' X ',' X ',' X ',\
+    # ' O ', ' O ',' X ',' X ',' X ',' O ',' X ',' O ',' X ',' O ',' X ',' O ',\
+    # ' X ', ' O ',' O ',' X ',' X ',' O ',' X ',' O ',' X ',' O ',' X ',' O ',\
+    # ' X ', ' X ',' X ',' O ',' O ',' O ',' O ',' X ',' X ',' X ',' O ',' X ',\
+    # ' O ', ' O ',' X ',' O ',' X ',' O ',' O ',' X ',' O ',' X ',' X ',' X ',\
+    # ' O ', ' X ',' X ',' X ',' O ',' X ',' O ',' X ',' X ',' O ',' X ',' X ',\
+    # ' X ', ' O ',' X ',' X ',' O ',' O ',' X ',' O ',' X ',' X ',' X ',' X ',\
+    # ' X ', ' X ',' O ',' X ',' O ',' O ',' O ',' O ',' X ',' X ',"   ","   "]
 
     @classmethod
     def serialize(cls, obj):

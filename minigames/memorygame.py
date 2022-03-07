@@ -9,7 +9,7 @@ from random import choice, shuffle
 class Memorygame:
     def __init__(self):
         # Size of game board
-        size = 16
+        size = 4
         self.title = "Memory game"
         # List full of white spaces. Pairs holds values hidden from player
         self.pairs = [" * " for _ in range(size)]
