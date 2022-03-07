@@ -8,15 +8,14 @@ from minigames.memorygame import Memorygame
 class GUI(tk.Tk):   #inheritance, hierarchy
     def __init__(self):
         super().__init__()
-        self.title("-¤- The Most Malicious Memorygame -¤-")
-        self.geometry("300x400")
+        self.geometry("400x400")
         self.game = Memorygame() #aggregation
         self.title(self.game.title)
         self.label = ttk.Label(self, text=self.board(), anchor=tk.CENTER)
         self.__createLayout() #no need to outsiders to make, so hidden
         
     def __createLayout(self):
-        ttk.Label(self, text='-¤- The Most Malicious Memorygame -¤-').grid(row=0, column=0, sticky=tk.E, padx=10, pady=10)
+        ttk.Label(self, text='Type a number that matches a place on board (0 - max)').grid(row=0, column=0, sticky=tk.E, padx=10, pady=10)
         entry = ttk.Entry(self, width=10)
         entry.grid(row=0, column=1, sticky=tk.E)
         #register to listen to an event and binding the event to function call
