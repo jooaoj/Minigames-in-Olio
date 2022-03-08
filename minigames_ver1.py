@@ -1,31 +1,35 @@
 # -*- coding: utf-8 -*-
-'''
-Console user interface for minigames ver 0 (procedural programming)
-Each minigame is one class whose 
-attributes
+"""
+Console-UI for minigames_ver1 (procedural programming):
+Each minigame is one class whose :
+
+attributes ->
     board
-    title    
-and methods
-    move
-    isGameOver
-    reset
-are used in the user interface.
+    title
+and methods ->
+    move()
+    isGameOver()
+    reset()
+
 Importing minigames do not create any side effects.
 All interaction with the user and game classes go through this script.
-ver 1
+
+ver1 :
 serialization and deserialization of each game object is implemented calling
 each game's class methods serialize and deserialize, serialized file is
-a classvariable filename is each class
-'''
-
+a class-variable filename is each class
+"""
+# Python built-ins:
 import math
-import os  # to get the name of the operating system for clearing the console screen
-import minigames
+import os
+
+# Importing from PATH:
 from minigames.memorygame import Memorygame
 from minigames.minimine import Minimine
 from minigames.fiverow import FiveRow
 
 
+# Main-program:
 def draw(game, rows, columns):
     clear()
     print('\t', game.title, '\n\n')
@@ -110,5 +114,6 @@ def clear():
     os.system(command)
 
 
+# Run this main-program:
 if __name__ == '__main__':
     menu()

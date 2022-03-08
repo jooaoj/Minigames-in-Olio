@@ -1,6 +1,6 @@
 """
 Title:          memorygame.py
-Author(s):      Jooa Jaakkola
+Author(s):      Paavo Makela, Jooa Jaakkola, Mio Saari, Nea Virtanen & Roope Kakko
 Description:    Memorygame()-class for mini-games
 """
 from random import choice, shuffle
@@ -9,7 +9,7 @@ from random import choice, shuffle
 class Memorygame:
     def __init__(self):
         # Size of game board
-        size = 16
+        size = 4
         self.title = "Memory game"
         # List full of white spaces. Pairs holds values hidden from player
         self.pairs = [" * " for _ in range(size)]
@@ -50,11 +50,11 @@ class Memorygame:
         # Copy all possible marks into a list
         markPool = list(self.marks)
 
+        # For-loop iterating for len(self.pairs) with a jump of 2.
         for i in range(0, len(self.pairs), 2):
-            # Choose a mark
+            # Choose a random mark
             mark = choice(markPool)
-            # Remove from mark pool so same mark can't
-            # come up twice
+            # Remove from markPool so same mark can't come up twice.
             markPool.remove(mark)
 
             # Add a pair of marks
@@ -64,5 +64,5 @@ class Memorygame:
         # Shuffles the pairs list so marks aren't in order
         shuffle(self.pairs)
 
-        # Empty board
+        # Empty board with a list comprehension for-loop with len(self.board).
         self.board = [" * " for _ in range(len(self.board))]
