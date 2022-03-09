@@ -14,7 +14,7 @@ import math
 from minigames.memorygame import Memorygame
 from minigames.fiverow import FiveRow
 
-
+# Not usable yet:
 # from minigames.minimine import Minimine
 
 

@@ -10,7 +10,7 @@ class Memorygame:
     def __init__(self):
         # Size of game board
         size = 4
-        self.title = "Memory game"
+        self.title = "-¤- tMMMg -¤-"
         # List full of white spaces. Pairs holds values hidden from player
         self.pairs = [" * " for _ in range(size)]
         self.pair = []

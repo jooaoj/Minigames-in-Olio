@@ -122,7 +122,7 @@ class FiveRow:
 
     def move(self, place):
         """
-        Helper function for removing available moves from the bot.
+        Removing available moves from the bot (and player).
         """
 
         def remove(lst):
