@@ -53,7 +53,7 @@ class FiveRow:
         except FileNotFoundError:
             game = cls()
 
-        return game  # a.k.a return "altered" game-argument back into "minigames_ver1.py"
+        return game  # a.k.a return "altered" game-argument back into main.py
 
     def isGameOver(self):
         """

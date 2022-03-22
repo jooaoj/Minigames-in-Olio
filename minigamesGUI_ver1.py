@@ -23,7 +23,7 @@ class GUI(tk.Frame):  # Inheritance, hierarchy
 
     def __init__(self, parent):
         super().__init__()  # Calls the parent-class initializer.
-        self.game = Memorygame()
+        self.game = FiveRow.deserialize()
 
         self.parent = parent
         self.parent.geometry("930x325")
@@ -39,12 +39,13 @@ class GUI(tk.Frame):  # Inheritance, hierarchy
         self.columnconfigure(0, weight=1)
         self.rowconfigure(0, weight=1)
         self.buttons._ButtonsBlock__createLayout()
+        # OLD CODE:
         # x, y = 0, 0
         # self.buttons.grid(row=x, column=y, sticky=tk.S, padx=10, pady=10)
 
     def move(self, place):
         """
-        Check if game is over.
+        Configure each game in GUI.
         :return:
         """
         self.buttons.disable(place)
@@ -68,7 +69,7 @@ class GUI(tk.Frame):  # Inheritance, hierarchy
         elif isinstance(self.game, FiveRow):  # Game : FiveRow
             machine = " O "
             self.game.move(place)
-            for i, item in enumerate(self.game.board):
+            for (i, item) in enumerate(self.game.board):
                 if item == machine:
                     self.buttons.tvar[i].set(self.game.board[i])
                     self.buttons.disable(i)
@@ -77,7 +78,8 @@ class GUI(tk.Frame):  # Inheritance, hierarchy
             self.game.move(place)
 
         self.buttons.tvar[place].set(self.game.board[place])  # update buttons
-        # is game over
+
+        # Is game over
         situation = self.game.isGameOver()
         if situation != 0:
             self.buttons.disableAll()  # game over
@@ -86,7 +88,11 @@ class GUI(tk.Frame):  # Inheritance, hierarchy
                 self.buttons.enableAll()
                 self.__createLayout()
             else:
+                self.game.reset()
+                self.game.serialize(self.game)
                 self.parent.destroy()  # destroy window
+
+        # OLD CODE:
         # if self.game.isGameOver() != 0:
         #     self.buttons.disableAll()
         #
@@ -98,12 +104,30 @@ class GUI(tk.Frame):  # Inheritance, hierarchy
         #     else:
         #         self.parent.destroy()  # Calls destroy() from parent, which here is self.
 
+    def onClosing(self):
+        """
+        Popup if player tries to close prematurely, then call serialize.
+        """
+        # If True => call serialize and close program
+        if messagebox.askyesno("Quit?", "Do you want to save your progress?"):
+            self.game.serialize(self.game)
+            self.tk.quit()
+        else:  # If False => just close the program
+            self.tk.quit()
 
-# A safeguard and also a sign for coder that this is something to run.
-if __name__ == '__main__':
+
+def main():
     window = tk.Tk()
-    frame = GUI(parent=window)
+    frame = GUI(parent=window)  # GUI is a frame.
+
     frame.grid(row=0, column=0, sticky=tk.NSEW)
     window.rowconfigure(0, weight=1)
     window.columnconfigure(0, weight=1)
+
+    window.protocol("WM_DELETE_WINDOW", frame.onClosing)
     window.mainloop()
+
+
+# A safeguard and also a sign for coder that this is something to run.
+if __name__ == '__main__':
+    main()
