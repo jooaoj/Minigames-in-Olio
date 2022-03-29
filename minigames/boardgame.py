@@ -1,71 +1,63 @@
 # -*- coding: utf-8 -*-
 """
-Title:          minigames_ver2.py
+Title:          boardgame.py
 Author(s):      Paavo Makela, Jooa Jaakkola, Mio Saari, Nea Virtanen & Roope Kakko
-Description:    Graphical user-interface, and contains the protoype for all games.
+Description:    Contains the prototype for all games.
 """
 # Python built-ins:
-from abc import ABC
+from abc import ABC, abstractmethod
 import json
 
 
-class Boardgame:
+class Boardgame(ABC):
+    filename: str = 'boardgame.json'
+    bgSymbol: str = '   '
+    symbols: list = [" " + chr(asciiCharacter) + " " for asciiCharacter in range(97, 123)]
 
-    # Class variable => declared outside init + usable as is all over class.
-    filename = ""
-    bgSymbol = "_"
-    # Collection of small alphabets:
-    symbols = tuple([" " + chr(asciiCharacter) + \
-                     " " for asciiCharacter in range(97, 123)])
-
-    def __init__(self):
-        self.title = title
+    def __init__(self, size: int = 4, bgSymbol: str = '', symbols: list = []):
         self.size = size
-        self.board = {}
 
-    # ~~ #
+        if bgSymbol:
+            Boardgame.bgSymbol = bgSymbol
+        if symbols:
+            Boardgame.symbols = symbols
+
+        self.board = {
+            'visible': [self.bgSymbol for _ in range(self.size * self.size)],
+            'hidden': [self.bgSymbol for _ in range(self.size * self.size)],
+        }
 
     @classmethod
     def serialize(cls, obj):
         """
-        Save game-state into external file (JSON)
+        Writes objects dictionary to savefile. Format is JSON.
         """
-        with open(cls.filename, "w") as file:  # Open a file in write-mode and close it after use.
+        with open(cls.filename, "w") as file:
             json.dump(obj.__dict__, file)
 
     @classmethod
     def deserialize(cls):
         try:
-            with open(cls.filename, "r") as file:  # Open a file in read-mode and close it after use.
+            # Read json file
+            with open(cls.filename, "r") as file:
                 loaded = json.load(file)
+                # Copy loaded json contents to new classes dict.
                 game = cls()
-                # Copy loaded JSON to new cls-dict:
                 for key in loaded.keys():
                     setattr(game, key, loaded[key])
 
         except FileNotFoundError:
+            # If there is no json file to be read from, use default.
             game = cls()
 
-        return game  # a.k.a return "altered" game-argument back into main.py
-
-    # ~~ #
+        return game
 
     @abstractmethod
-    def move(self) -> bool:
-        """
-        
-        :param :
-        :return True if valid move:
-        """
+    def move(self, place: int) -> bool:
         pass
 
-    def isGameOver(self) -> int:
-        """
-        
-		:param :
-		:return 0, 1, 2 or 3:
-        """
+    def isGameOver(self):
         pass
 
     def reset(self):
-        pass
+        self.board['visible'] = [self.bgSymbol for _ in range(len(self.board['visible']))]
