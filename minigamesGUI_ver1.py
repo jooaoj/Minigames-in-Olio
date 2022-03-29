@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Title:          minigamesGUI_ver0.py
+Title:          minigamesGUI_ver2.py
 Author(s):      Paavo Makela, Jooa Jaakkola, Mio Saari, Nea Virtanen & Roope Kakko
 Description:    Graphical user-interface.
 """

@@ -1,0 +1,26 @@
+Minigames are a collection of small and simple board games. 
+They all have a symmetrical board that is divided into equal number of rows and columns. In each game user can pick a place (row and column) from the board to make a move:
+
+class Minimine {
+	In the game of minimine when user makes the move the program checks if the picked place contains a mine. If is does the game ends and the places of mines are shown. If there was no mine, the program shows how many mines the picked place sees in its immediately surrounding places (up, down, left, right, upper left and right corners and lower left and right corners). And the user gets 100 points. If user has picked all the empty places the program ends as the user wins.
+}
+
+> In Game Minimine User makes a move, Program checks if picked Place contains Mine.
+>>> If Place contains Mine, Game ends and all Places of Mines shown.
+>>> If Place no Mine, Program shows how many mines in surrounding Places.
+>>>>>> User gets 100 Points.
+>
+> If User picked all Empty Places, Program ends and User wins.
+}
+
+class Memorygame {
+	If the game is memorygame, user makes two moves i.e. pickes two places and the program shows which marks are in the slot. The slots normally show the same symbol but when it is selected a symbol or mark in the spot is revealed. If the pair user has selected shows the same marks, they are left unturned else they are turned back to original situation. When user has found all the pairs and there are no more places to select user has won the game.
+}
+
+class FiveInARow {
+	If the game is five-in-a-row, user places X to one spot and a machine makes a countermove and places O to the board. When either player has five marks in a row horizontally, vertically or crosswise, he or she wins. If all the slots in the board are filled with marks the game ends as tie.
+}
+
+class Menu {
+	A player can pick from a menu which program to play and in the case of memorygame the level of difficulty (the number of pairs) or the number of mines and the board size in minimine. The five-in-a-row board is fixed 12x12. If a game ends user can continue to play again, play another game, or close the program. If a game is closed before it is finished the game’s situation is saved and when the game is restarted the situation is restored.
+}
